@@ -1,6 +1,6 @@
 export async function getDino() {
   try {
-    let response = await fetch('http://dinoipsum.herokuapp.com/api/?format=json&paragraphs=3&words=15');
+    let response = await fetch('http://dinoipsum.herokuapp.com/api/?format=json&paragraphs=1&words=2');
     let jsonifiedResponse;
     if(response.ok && response.status ==200) {
       jsonifiedResponse = await response.json();
@@ -9,7 +9,6 @@ export async function getDino() {
     }
     return jsonifiedResponse;
   } catch(error) {
-    console.log(error)
     return false;
   }
 }

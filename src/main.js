@@ -2,18 +2,20 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from "jquery";
-import { getDino } from './src/dinosaur-service';
+import { getDino } from './dinosaur-service.js';
 
 async function getDinoWords() {
   const apiResponse = await getDino();
   if(!apiResponse) {
-    $(".display").html('<p>Something Went Wrong!</p>');
+    $("#display").html('<p>Something Went Wrong!</p>');
   } else {
-    $('.display').text(apiResponse);
+    $("#display").html(apiResponse);
   }
 }
     
 
 $(document).ready(function() {
-  getDinoWords();
+  $('#get-dino').click(function() {
+    getDinoWords();
+  });
 });
